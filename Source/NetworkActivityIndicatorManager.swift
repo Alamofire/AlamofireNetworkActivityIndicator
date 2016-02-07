@@ -29,6 +29,8 @@ public class NetworkActivityIndicatorManager {
         case NotActive, DelayingStart, Active, DelayingCompletion
     }
 
+    // MARK: - Properties
+
     public static let sharedManager = NetworkActivityIndicatorManager()
 
     public var isEnabled: Bool {
