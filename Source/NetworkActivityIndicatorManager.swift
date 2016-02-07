@@ -26,7 +26,7 @@ import UIKit
 
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
-        case NotActive, DelayingStart, Active, DelayingEnd
+        case NotActive, DelayingStart, Active, DelayingCompletion
     }
 
     public static let sharedManager = NetworkActivityIndicatorManager()
@@ -42,16 +42,46 @@ public class NetworkActivityIndicatorManager {
         }
     }
 
-    public private(set) var isNetworkActivityIndicatorVisible: Bool = false
+    public private(set) var isNetworkActivityIndicatorVisible: Bool = false {
+        didSet {
+            guard isNetworkActivityIndicatorVisible != oldValue else { return }
 
-    public var activationDelay: NSTimeInterval = 1.0
-    public var completionDelay: NSTimeInterval = 0.17
+            dispatch_async(dispatch_get_main_queue()) {
+                let app = UIApplication.sharedApplication()
+                app.networkActivityIndicatorVisible = self.isNetworkActivityIndicatorVisible
 
-    private var activityIndicatorState: ActivityIndicatorState = .NotActive
+                self.networkActivityIndicatorVisibilityChanged?(self.isNetworkActivityIndicatorVisible)
+            }
+        }
+    }
+
+    public var networkActivityIndicatorVisibilityChanged: (Bool -> Void)?
+
+    public var startDelay: NSTimeInterval = 1.0
+    public var completionDelay: NSTimeInterval = 0.2
+
+    private var activityIndicatorState: ActivityIndicatorState = .NotActive {
+        didSet {
+            switch activityIndicatorState {
+            case .NotActive:
+                isNetworkActivityIndicatorVisible = false
+                invalidateStartDelayTimer()
+                invalidateCompletionDelayTimer()
+            case .DelayingStart:
+                scheduleStartDelayTimer()
+            case .Active:
+                invalidateCompletionDelayTimer()
+                isNetworkActivityIndicatorVisible = true
+            case .DelayingCompletion:
+                scheduleCompletionDelayTimer()
+            }
+        }
+    }
+
     private var activityCount: Int = 0
-    private var enabled: Bool = false
+    private var enabled: Bool = true
 
-    private var activationDelayTimer: NSTimer?
+    private var startDelayTimer: NSTimer?
     private var completionDelayTimer: NSTimer?
 
     private let lock = NSLock()
@@ -65,7 +95,7 @@ public class NetworkActivityIndicatorManager {
     deinit {
         unregisterForNotifications()
 
-        invalidateActivationDelayTimer()
+        invalidateStartDelayTimer()
         invalidateCompletionDelayTimer()
     }
 
@@ -73,44 +103,40 @@ public class NetworkActivityIndicatorManager {
 
     public func incrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
+
         activityCount += 1
+        updateActivityIndicatorStateForNetworkActivityChange()
     }
 
     public func decrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
+        guard activityCount > 0 else { return }
 
-        if activityCount > 0 { activityCount -= 1 }
+        activityCount -= 1
+        updateActivityIndicatorStateForNetworkActivityChange()
     }
 
-    // MARK: - Internal - Activity Indicator State
+    // MARK: - Private - Activity Indicator State
 
-    func updateActivityIndicatorStateForNetworkActivityChange() {
+    private func updateActivityIndicatorStateForNetworkActivityChange() {
         guard enabled else { return }
 
         switch activityIndicatorState {
         case .NotActive:
-            if activityCount > 0 {
-                activityIndicatorState = .DelayingStart
-
-            }
+            if activityCount > 0 { activityIndicatorState = .DelayingStart }
         case .DelayingStart:
-            print("")
+            // No-op - let the delay timer finish
+            break
         case .Active:
-            print("")
-        case .DelayingEnd:
-            print("")
+            if activityCount == 0 { activityIndicatorState = .DelayingCompletion }
+        case .DelayingCompletion:
+            if activityCount > 0 { activityIndicatorState = .Active }
         }
     }
 
-    func setNetworkActivityIndicatorVisible(visible: Bool) {
-        dispatch_async(dispatch_get_main_queue()) {
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = visible
-        }
-    }
+    // MARK: - Private - Notification Registration
 
-    // MARK: - Internal - Notification Registration
-
-    func registerForNotifications() {
+    private func registerForNotifications() {
         let notificationCenter = NSNotificationCenter.defaultCenter()
 
         notificationCenter.addObserver(
@@ -122,15 +148,15 @@ public class NetworkActivityIndicatorManager {
 
         notificationCenter.addObserver(
             self,
-            selector: "networkRequestDidFinish",
+            selector: "networkRequestDidComplete",
             name: NotificationNames.TaskDidSuspend,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
-            selector: "networkRequestDidFinish",
-            name: NotificationNames.TaskDidCancel,
+            selector: "networkRequestDidComplete",
+            name: NotificationNames.TaskDidComplete,
             object: nil
         )
     }
@@ -139,32 +165,32 @@ public class NetworkActivityIndicatorManager {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
-    // MARK: - Internal - Notifications
+    // MARK: - Private - Notifications
 
-    func networkRequestDidStart() {
+    @objc private func networkRequestDidStart() {
         incrementActivityCount()
     }
 
-    func networkRequestDidFinish() {
+    @objc private func networkRequestDidComplete() {
         decrementActivityCount()
     }
 
-    // MARK: - Internal - Timers
+    // MARK: - Private - Timers
 
-    func startActivationDelayTimer() {
-        activationDelayTimer = NSTimer(
-            timeInterval: activationDelay,
+    private func scheduleStartDelayTimer() {
+        startDelayTimer = NSTimer(
+            timeInterval: startDelay,
             target: self,
-            selector: "activationDelayTimerFired",
+            selector: "startDelayTimerFired",
             userInfo: nil,
             repeats: false
         )
 
-        NSRunLoop.mainRunLoop().addTimer(activationDelayTimer!, forMode: NSRunLoopCommonModes)
-        NSRunLoop.mainRunLoop().addTimer(activationDelayTimer!, forMode: UITrackingRunLoopMode)
+        NSRunLoop.mainRunLoop().addTimer(startDelayTimer!, forMode: NSRunLoopCommonModes)
+        NSRunLoop.mainRunLoop().addTimer(startDelayTimer!, forMode: UITrackingRunLoopMode)
     }
 
-    func startCompletionDelayTimer() {
+    private func scheduleCompletionDelayTimer() {
         completionDelayTimer = NSTimer(
             timeInterval: completionDelay,
             target: self,
@@ -177,17 +203,27 @@ public class NetworkActivityIndicatorManager {
         NSRunLoop.mainRunLoop().addTimer(completionDelayTimer!, forMode: UITrackingRunLoopMode)
     }
 
-    func activationDelayTimerFired() {
+    @objc private func startDelayTimerFired() {
         lock.lock() ; defer { lock.unlock() }
-        print("activationDelayTimerFired")
+
+        if activityCount > 0 {
+            activityIndicatorState = .Active
+        } else {
+            activityIndicatorState = .NotActive
+        }
     }
 
-    func invalidateActivationDelayTimer() {
-        activationDelayTimer?.invalidate()
-        activationDelayTimer = nil
+    @objc private func completionDelayTimerFired() {
+        lock.lock() ; defer { lock.unlock() }
+        activityIndicatorState = .NotActive
     }
 
-    func invalidateCompletionDelayTimer() {
+    private func invalidateStartDelayTimer() {
+        startDelayTimer?.invalidate()
+        startDelayTimer = nil
+    }
+
+    private func invalidateCompletionDelayTimer() {
         completionDelayTimer?.invalidate()
         completionDelayTimer = nil
     }
