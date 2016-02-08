@@ -144,21 +144,21 @@ public class NetworkActivityIndicatorManager {
         notificationCenter.addObserver(
             self,
             selector: "networkRequestDidStart",
-            name: NotificationNames.TaskDidResume,
+            name: Notifications.Task.DidResume,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: "networkRequestDidComplete",
-            name: NotificationNames.TaskDidSuspend,
+            name: Notifications.Task.DidSuspend,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: "networkRequestDidComplete",
-            name: NotificationNames.TaskDidComplete,
+            name: Notifications.Task.DidComplete,
             object: nil
         )
     }
