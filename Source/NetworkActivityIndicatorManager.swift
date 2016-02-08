@@ -24,6 +24,21 @@ import Alamofire
 import Foundation
 import UIKit
 
+/**
+    The `NetworkActivityIndicatorManager` manages the state of the network activity indicator in the status bar. When
+    enabled, it will listen for notifications indicating that a URL session task has started or completed and start
+    animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
+    greater than zero.
+ 
+    To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
+    `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
+ 
+        NetworkActivityIndicatorManager.sharedManager.isEnabled = true
+ 
+    By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
+    hide automatically as Alamofire requests start and complete. You should not ever need to call 
+    `incrementActivityCount` and `decrementActivityCount` yourself.
+*/
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
         case NotActive, DelayingStart, Active, DelayingCompletion
@@ -31,8 +46,10 @@ public class NetworkActivityIndicatorManager {
 
     // MARK: - Properties
 
+    /// The shared network activity indicator manager for the system.
     public static let sharedManager = NetworkActivityIndicatorManager()
 
+    /// A boolean value indicating whether the manager is enabled. Defaults to `false`.
     public var isEnabled: Bool {
         get {
             lock.lock() ; defer { lock.unlock() }
@@ -44,6 +61,7 @@ public class NetworkActivityIndicatorManager {
         }
     }
 
+    /// A boolean value indicating whether the network activity indicator is currently visible.
     public private(set) var isNetworkActivityIndicatorVisible: Bool = false {
         didSet {
             guard isNetworkActivityIndicatorVisible != oldValue else { return }
@@ -57,9 +75,16 @@ public class NetworkActivityIndicatorManager {
         }
     }
 
+    /// A closure executed when the network activity indicator visibility changes.
     public var networkActivityIndicatorVisibilityChanged: (Bool -> Void)?
 
+    /// A time interval indicating the minimum duration of networking activity that should occur before the activity 
+    /// indicator is displayed. Defaults to `1.0` second.
     public var startDelay: NSTimeInterval = 1.0
+
+    /// A time interval indicating the duration of time that no networking activity should be observed before dismissing
+    /// the activity indicator. This allows the activity indicator to be continuously displayed between multiple network
+    /// requests. Without this delay, the activity indicator tends to flicker. Defaults to `0.2` seconds.
     public var completionDelay: NSTimeInterval = 0.2
 
     private var activityIndicatorState: ActivityIndicatorState = .NotActive {
@@ -103,6 +128,14 @@ public class NetworkActivityIndicatorManager {
 
     // MARK: - Activity Count
 
+    /**
+        Increments the number of active network requests.
+
+        If this number was zero before incrementing, the network activity indicator will start spinning after 
+        the `startDelay`.
+
+        Generally, this method should not need to be used directly.
+    */
     public func incrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
 
@@ -110,6 +143,14 @@ public class NetworkActivityIndicatorManager {
         updateActivityIndicatorStateForNetworkActivityChange()
     }
 
+    /**
+        Decrements the number of active network requests.
+
+        If the number of active requests is zero after calling this method, the network activity indicator will stop 
+        spinning after the `completionDelay`.
+
+        Generally, this method should not need to be used directly.
+    */
     public func decrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
         guard activityCount > 0 else { return }
@@ -163,7 +204,7 @@ public class NetworkActivityIndicatorManager {
         )
     }
 
-    func unregisterForNotifications() {
+    private func unregisterForNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
