@@ -1,7 +1,7 @@
 # AlamofireNetworkActivityIndicator
 
 [![Build Status](https://travis-ci.org/Alamofire/AlamofireNetworkActivityIndicator.svg)](https://travis-ci.org/Alamofire/AlamofireNetworkActivityIndicator)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/AlamofireNetworkActivityIndicator.svg)](https://img.shields.io/cocoapods/v/AlamofireNetworkActivityIndicator.svg)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/AlamofireNetworkActivityIndicator.svg)](https://img.shields.io/cocoapods/v/AlamofireNetworkActivityIndicator.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/AlamofireNetworkActivityIndicator.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireNetworkActivityIndicator)
 [![Twitter](https://img.shields.io/badge/twitter-@AlamofireSF-blue.svg?style=flat)](http://twitter.com/AlamofireSF)
