@@ -113,7 +113,7 @@ NetworkActivityIndicatorManager.sharedManager.startDelay = 1.0
 The completion delay is a time interval indicating the duration of time that no networking activity should be observed before dismissing the activity indicator. This allows the activity indicator to be continuously displayed between multiple network requests. Without this delay, the activity indicator tends to flicker. The default value is `0.2` seconds. You can easily change the default value if needed.
 
 ```swift
-NetworkActivityIndicatorManager.sharedManager.completion = 0.2
+NetworkActivityIndicatorManager.sharedManager.completionDelay = 0.2
 ```
 
 ---
