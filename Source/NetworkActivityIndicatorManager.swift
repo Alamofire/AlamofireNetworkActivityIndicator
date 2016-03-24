@@ -184,21 +184,21 @@ public class NetworkActivityIndicatorManager {
 
         notificationCenter.addObserver(
             self,
-            selector: "networkRequestDidStart",
+            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
             name: Notifications.Task.DidResume,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
-            selector: "networkRequestDidComplete",
+            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
             name: Notifications.Task.DidSuspend,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
-            selector: "networkRequestDidComplete",
+            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
             name: Notifications.Task.DidComplete,
             object: nil
         )
@@ -224,7 +224,7 @@ public class NetworkActivityIndicatorManager {
         startDelayTimer = NSTimer(
             timeInterval: startDelay,
             target: self,
-            selector: "startDelayTimerFired",
+            selector: #selector(NetworkActivityIndicatorManager.startDelayTimerFired),
             userInfo: nil,
             repeats: false
         )
@@ -237,7 +237,7 @@ public class NetworkActivityIndicatorManager {
         completionDelayTimer = NSTimer(
             timeInterval: completionDelay,
             target: self,
-            selector: "completionDelayTimerFired",
+            selector: #selector(NetworkActivityIndicatorManager.completionDelayTimerFired),
             userInfo: nil,
             repeats: false
         )
