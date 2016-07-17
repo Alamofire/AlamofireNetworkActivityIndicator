@@ -242,8 +242,6 @@
 				TargetAttributes = {
 					4CB928381C66E1A600CE5F08 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 622TD2FCB9;
-						DevelopmentTeamName = "Pavel Repin (Personal Team)";
 						LastSwiftMigration = 0800;
 					};
 					4CB928421C66E1A700CE5F08 = {
