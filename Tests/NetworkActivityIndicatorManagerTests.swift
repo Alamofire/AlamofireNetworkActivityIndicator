@@ -36,7 +36,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.0
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -48,7 +48,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         // When
         manager.incrementActivityCount()
         dispatch_after(0.1) { manager.decrementActivityCount() }
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertTrue(manager.isEnabled)
@@ -66,7 +66,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.0
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -81,7 +81,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatch_after(0.10) { manager.decrementActivityCount() }
         dispatch_after(0.15) { manager.decrementActivityCount() }
 
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertTrue(manager.isEnabled)
@@ -108,10 +108,10 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.incrementActivityCount()
         dispatch_after(0.05) { manager.decrementActivityCount() }
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
         dispatch_after(0.1) { expectation.fulfill() }
 
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertTrue(manager.isEnabled)
@@ -124,7 +124,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.2
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -139,7 +139,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatch_after(0.2) { manager.incrementActivityCount() }
         dispatch_after(0.3) { manager.decrementActivityCount() }
 
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertTrue(manager.isEnabled)
@@ -168,10 +168,10 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.incrementActivityCount()
         dispatch_after(0.1) { manager.decrementActivityCount() }
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
         dispatch_after(0.2) { expectation.fulfill() }
 
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertFalse(manager.isEnabled)
@@ -196,10 +196,10 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatch_after(0.15) { manager.decrementActivityCount() }
         dispatch_after(0.20) { manager.decrementActivityCount() }
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
         dispatch_after(0.25) { expectation.fulfill() }
 
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertTrue(manager.isEnabled)
@@ -219,7 +219,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.0
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -229,8 +229,8 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/delay/1")
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/1")
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -247,7 +247,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.0
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -257,8 +257,8 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/status/404")
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        let _ = Alamofire.request(.GET, "https://httpbin.org/status/404")
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -275,7 +275,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 1.0
         manager.completionDelay = 1.0
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -285,8 +285,8 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/delay/2")
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/2")
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -303,7 +303,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.5
         manager.completionDelay = 0.5
 
-        let expectation = expectationWithDescription("visibility should change twice")
+        let expectation = self.expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
@@ -313,11 +313,11 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/delay/1")
-        Alamofire.request(.GET, "https://httpbin.org/delay/2")
-        Alamofire.request(.GET, "https://httpbin.org/delay/3")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/1")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/2")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/3")
 
-        waitForExpectationsWithTimeout(timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -332,10 +332,10 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
 // MARK: -
 
 private func dispatch_after(
-    seconds: NSTimeInterval,
-    _ queue: dispatch_queue_t = dispatch_get_main_queue(),
-    _ closure: dispatch_block_t)
+    _ seconds: TimeInterval,
+    _ queue: DispatchQueue = DispatchQueue.main,
+    _ closure: () -> ())
 {
-    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(ceil(seconds * NSTimeInterval(NSEC_PER_SEC))))
-    dispatch_after(time, queue) { closure() }
+    let time = DispatchTime.now() + seconds
+    queue.after(when: time) { closure() }
 }
