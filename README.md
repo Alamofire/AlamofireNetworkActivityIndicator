@@ -18,12 +18,12 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 7.3+
+- iOS 9.0+
+- Xcode 8.0 beta 3+
 
 ## Dependencies
 
-- [Alamofire 3.3+](https://github.com/Alamofire/Alamofire)
+- [Alamofire swift3 Branch](https://github.com/Alamofire/Alamofire)
 
 ## Communication
 
