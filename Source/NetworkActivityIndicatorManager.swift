@@ -41,7 +41,7 @@ import UIKit
 */
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
-        case NotActive, DelayingStart, Active, DelayingCompletion
+        case notActive, delayingStart, active, delayingCompletion
     }
 
     // MARK: - Properties
@@ -85,19 +85,19 @@ public class NetworkActivityIndicatorManager {
     /// requests. Without this delay, the activity indicator tends to flicker. Defaults to `0.2` seconds.
     public var completionDelay: TimeInterval = 0.2
 
-    private var activityIndicatorState: ActivityIndicatorState = .NotActive {
+    private var activityIndicatorState: ActivityIndicatorState = .notActive {
         didSet {
             switch activityIndicatorState {
-            case .NotActive:
+            case .notActive:
                 isNetworkActivityIndicatorVisible = false
                 invalidateStartDelayTimer()
                 invalidateCompletionDelayTimer()
-            case .DelayingStart:
+            case .delayingStart:
                 scheduleStartDelayTimer()
-            case .Active:
+            case .active:
                 invalidateCompletionDelayTimer()
                 isNetworkActivityIndicatorVisible = true
-            case .DelayingCompletion:
+            case .delayingCompletion:
                 scheduleCompletionDelayTimer()
             }
         }
@@ -163,15 +163,15 @@ public class NetworkActivityIndicatorManager {
         guard enabled else { return }
 
         switch activityIndicatorState {
-        case .NotActive:
-            if activityCount > 0 { activityIndicatorState = .DelayingStart }
-        case .DelayingStart:
+        case .notActive:
+            if activityCount > 0 { activityIndicatorState = .delayingStart }
+        case .delayingStart:
             // No-op - let the delay timer finish
             break
-        case .Active:
-            if activityCount == 0 { activityIndicatorState = .DelayingCompletion }
-        case .DelayingCompletion:
-            if activityCount > 0 { activityIndicatorState = .Active }
+        case .active:
+            if activityCount == 0 { activityIndicatorState = .delayingCompletion }
+        case .delayingCompletion:
+            if activityCount > 0 { activityIndicatorState = .active }
         }
     }
 
@@ -248,15 +248,15 @@ public class NetworkActivityIndicatorManager {
         lock.lock() ; defer { lock.unlock() }
 
         if activityCount > 0 {
-            activityIndicatorState = .Active
+            activityIndicatorState = .active
         } else {
-            activityIndicatorState = .NotActive
+            activityIndicatorState = .notActive
         }
     }
 
     @objc private func completionDelayTimerFired() {
         lock.lock() ; defer { lock.unlock() }
-        activityIndicatorState = .NotActive
+        activityIndicatorState = .notActive
     }
 
     private func invalidateStartDelayTimer() {
