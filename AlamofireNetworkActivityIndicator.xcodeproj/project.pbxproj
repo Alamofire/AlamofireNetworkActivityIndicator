@@ -678,6 +678,7 @@
 				4C37A56C1D45CA7100FC20A4 /* ReleaseTest */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CB928331C66E1A600CE5F08 /* Build configuration list for PBXProject "AlamofireNetworkActivityIndicator" */ = {
 			isa = XCConfigurationList;

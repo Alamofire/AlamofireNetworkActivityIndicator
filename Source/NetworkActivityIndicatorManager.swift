@@ -29,14 +29,14 @@ import UIKit
     enabled, it will listen for notifications indicating that a URL session task has started or completed and start
     animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
     greater than zero.
- 
+
     To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
     `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
- 
+
         NetworkActivityIndicatorManager.sharedManager.isEnabled = true
- 
+
     By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
-    hide automatically as Alamofire requests start and complete. You should not ever need to call 
+    hide automatically as Alamofire requests start and complete. You should not ever need to call
     `incrementActivityCount` and `decrementActivityCount` yourself.
 */
 public class NetworkActivityIndicatorManager {
@@ -76,7 +76,7 @@ public class NetworkActivityIndicatorManager {
     /// A closure executed when the network activity indicator visibility changes.
     public var networkActivityIndicatorVisibilityChanged: ((Bool) -> Void)?
 
-    /// A time interval indicating the minimum duration of networking activity that should occur before the activity 
+    /// A time interval indicating the minimum duration of networking activity that should occur before the activity
     /// indicator is displayed. Defaults to `1.0` second.
     public var startDelay: TimeInterval = 1.0
 
@@ -129,7 +129,7 @@ public class NetworkActivityIndicatorManager {
     /**
         Increments the number of active network requests.
 
-        If this number was zero before incrementing, the network activity indicator will start spinning after 
+        If this number was zero before incrementing, the network activity indicator will start spinning after
         the `startDelay`.
 
         Generally, this method should not need to be used directly.
@@ -144,7 +144,7 @@ public class NetworkActivityIndicatorManager {
     /**
         Decrements the number of active network requests.
 
-        If the number of active requests is zero after calling this method, the network activity indicator will stop 
+        If the number of active requests is zero after calling this method, the network activity indicator will stop
         spinning after the `completionDelay`.
 
         Generally, this method should not need to be used directly.
