@@ -231,7 +231,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/delay/1")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/1")
         waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
@@ -259,7 +259,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/status/404")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/status/404")
         waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
@@ -287,7 +287,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/delay/2")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/2")
         waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
@@ -315,9 +315,9 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         }
 
         // When
-        Alamofire.request(.GET, "https://httpbin.org/delay/1")
-        Alamofire.request(.GET, "https://httpbin.org/delay/2")
-        Alamofire.request(.GET, "https://httpbin.org/delay/3")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/1")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/2")
+        let _ = Alamofire.request(.GET, "https://httpbin.org/delay/3")
 
         waitForExpectations(timeout: timeout, handler: nil)
 
