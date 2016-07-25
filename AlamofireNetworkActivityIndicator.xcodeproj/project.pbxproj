@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		4C37A5691D45CA7100FC20A4 /* Cleanup Whitespace */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4C37A5731D45CA7100FC20A4 /* Build configuration list for PBXAggregateTarget "Cleanup Whitespace" */;
+			buildPhases = (
+				4C37A5741D45CA7600FC20A4 /* Cleanup Whitespace */,
+			);
+			dependencies = (
+			);
+			name = "Cleanup Whitespace";
+			productName = "Cleanup Whitespace";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4CB928441C66E1A700CE5F08 /* AlamofireNetworkActivityIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB928391C66E1A600CE5F08 /* AlamofireNetworkActivityIndicator.framework */; };
 		4CB928581C66E20600CE5F08 /* AlamofireNetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB928561C66E20600CE5F08 /* AlamofireNetworkActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -240,6 +254,9 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Alamofire;
 				TargetAttributes = {
+					4C37A5691D45CA7100FC20A4 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					4CB928381C66E1A600CE5F08 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -268,6 +285,7 @@
 			targets = (
 				4CB928381C66E1A600CE5F08 /* AlamofireNetworkActivityIndicator */,
 				4CB928421C66E1A700CE5F08 /* AlamofireNetworkActivityIndicatorTests */,
+				4C37A5691D45CA7100FC20A4 /* Cleanup Whitespace */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +359,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C37A5741D45CA7600FC20A4 /* Cleanup Whitespace */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Cleanup Whitespace";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\ndirectories=(Source Tests)\n\nfor directory in \"${directories[@]}\"\ndo\necho \"Cleaning whitespace in directory: $directory\"\nfind $directory -iregex '.*\\.swift' -exec sed -E -i '' -e 's/[[:blank:]]*$//' {} \\;\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CB928341C66E1A600CE5F08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -374,6 +409,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4C37A56A1D45CA7100FC20A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4C37A56B1D45CA7100FC20A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4C37A56C1D45CA7100FC20A4 /* ReleaseTest */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = ReleaseTest;
+		};
 		4CB9284B1C66E1A700CE5F08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -614,6 +670,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4C37A5731D45CA7100FC20A4 /* Build configuration list for PBXAggregateTarget "Cleanup Whitespace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C37A56A1D45CA7100FC20A4 /* Debug */,
+				4C37A56B1D45CA7100FC20A4 /* Release */,
+				4C37A56C1D45CA7100FC20A4 /* ReleaseTest */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4CB928331C66E1A600CE5F08 /* Build configuration list for PBXProject "AlamofireNetworkActivityIndicator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
