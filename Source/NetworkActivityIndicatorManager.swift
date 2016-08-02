@@ -69,7 +69,7 @@ public class NetworkActivityIndicatorManager {
             guard isNetworkActivityIndicatorVisible != oldValue else { return }
 
             DispatchQueue.main.async {
-                UIApplication.shared().isNetworkActivityIndicatorVisible = self.isNetworkActivityIndicatorVisible
+                UIApplication.shared.isNetworkActivityIndicatorVisible = self.isNetworkActivityIndicatorVisible
                 self.networkActivityIndicatorVisibilityChanged?(self.isNetworkActivityIndicatorVisible)
             }
         }
@@ -111,7 +111,7 @@ public class NetworkActivityIndicatorManager {
     private var startDelayTimer: Timer?
     private var completionDelayTimer: Timer?
 
-    private let lock = Lock()
+    private let lock = NSLock()
 
     // MARK: - Internal - Initialization
 
@@ -229,8 +229,8 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        RunLoop.main.add(startDelayTimer!, forMode: RunLoopMode.commonModes)
-        RunLoop.main.add(startDelayTimer!, forMode: RunLoopMode(rawValue: UITrackingRunLoopMode))
+        RunLoop.main.add(startDelayTimer!, forMode: .commonModes)
+        RunLoop.main.add(startDelayTimer!, forMode: .UITrackingRunLoopMode)
     }
 
     private func scheduleCompletionDelayTimer() {
@@ -242,8 +242,8 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        RunLoop.main.add(completionDelayTimer!, forMode: RunLoopMode.commonModes)
-        RunLoop.main.add(completionDelayTimer!, forMode: RunLoopMode(rawValue: UITrackingRunLoopMode))
+        RunLoop.main.add(completionDelayTimer!, forMode: .commonModes)
+        RunLoop.main.add(completionDelayTimer!, forMode: .UITrackingRunLoopMode)
     }
 
     @objc private func startDelayTimerFired() {
