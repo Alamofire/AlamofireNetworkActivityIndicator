@@ -333,6 +333,6 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
 
 // MARK: -
 
-private func dispatchAfter(_ seconds: TimeInterval, closure: () -> Void) {
+private func dispatchAfter(_ seconds: TimeInterval, closure: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { closure() }
 }
