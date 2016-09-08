@@ -20,10 +20,11 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 
 - iOS 8.0+
 - Xcode 7.3+
+- Swift 2.2 or 2.3
 
 ## Dependencies
 
-- [Alamofire 3.3+](https://github.com/Alamofire/Alamofire)
+- [Alamofire 3.5+](https://github.com/Alamofire/Alamofire)
 
 ## Communication
 
@@ -43,16 +44,16 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 $ gem install cocoapods
 ```
 
-> CocoaPods 0.39.0+ is required.
+> CocoaPods 1.0.0+ is required.
 
 To integrate AlamofireNetworkActivityIndicator into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
-pod 'AlamofireNetworkActivityIndicator', '~> 1.0'
+pod 'AlamofireNetworkActivityIndicator', '~> 1.1'
 ```
 
 Then, run the following command:
@@ -75,7 +76,7 @@ $ brew install carthage
 To integrate AlamofireNetworkActivityIndicator into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Alamofire/AlamofireNetworkActivityIndicator" ~> 1.0
+github "Alamofire/AlamofireNetworkActivityIndicator" ~> 1.1
 ```
 
 ---

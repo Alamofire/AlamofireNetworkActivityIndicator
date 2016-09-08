@@ -4,7 +4,29 @@ All notable changes to this project will be documented in this file.
 
 #### 1.x Releases
 
+- `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
+
+---
+
+## [1.1.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/1.1.0)
+Released on 2016-09-08. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/issues?utf8=✓&q=milestone%3A1.1.0).
+
+#### Updated
+- The build status badge in the README now only reports the status of the `master` branch.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+- The source, test and example code along with project settings to support Swift 2.2
+  and Swift 2.3 simultaneously.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+- Updated the travis yaml file for Swift 2.3 and the new OS target versions.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+- Updated the Cartfile and Alamofire submodule to the 3.5.0 release.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+- Updated Xcode project settings based on Xcode 8 GM recommendations.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+- Code coverage generation is now disabled on framework targets to improve stability.
+  - Updated by [Christian Noon](https://github.com/cnoon).
 
 ---
 
