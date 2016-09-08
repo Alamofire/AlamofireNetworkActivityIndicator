@@ -26,21 +26,19 @@ import Alamofire
 import Foundation
 import UIKit
 
-/**
-    The `NetworkActivityIndicatorManager` manages the state of the network activity indicator in the status bar. When
-    enabled, it will listen for notifications indicating that a URL session task has started or completed and start
-    animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
-    greater than zero.
-
-    To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
-    `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
-
-        NetworkActivityIndicatorManager.sharedManager.isEnabled = true
-
-    By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
-    hide automatically as Alamofire requests start and complete. You should not ever need to call
-    `incrementActivityCount` and `decrementActivityCount` yourself.
-*/
+/// The `NetworkActivityIndicatorManager` manages the state of the network activity indicator in the status bar. When
+/// enabled, it will listen for notifications indicating that a URL session task has started or completed and start
+/// animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
+/// greater than zero.
+///
+/// To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
+/// `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
+///
+///     NetworkActivityIndicatorManager.sharedManager.isEnabled = true
+///
+/// By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
+/// hide automatically as Alamofire requests start and complete. You should not ever need to call
+/// `incrementActivityCount` and `decrementActivityCount` yourself.
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
         case notActive, delayingStart, active, delayingCompletion
@@ -128,14 +126,12 @@ public class NetworkActivityIndicatorManager {
 
     // MARK: - Activity Count
 
-    /**
-        Increments the number of active network requests.
-
-        If this number was zero before incrementing, the network activity indicator will start spinning after
-        the `startDelay`.
-
-        Generally, this method should not need to be used directly.
-    */
+    /// Increments the number of active network requests.
+    ///
+    /// If this number was zero before incrementing, the network activity indicator will start spinning after
+    /// the `startDelay`.
+    ///
+    /// Generally, this method should not need to be used directly.
     public func incrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
 
@@ -143,14 +139,12 @@ public class NetworkActivityIndicatorManager {
         updateActivityIndicatorStateForNetworkActivityChange()
     }
 
-    /**
-        Decrements the number of active network requests.
-
-        If the number of active requests is zero after calling this method, the network activity indicator will stop
-        spinning after the `completionDelay`.
-
-        Generally, this method should not need to be used directly.
-    */
+    /// Decrements the number of active network requests.
+    ///
+    /// If the number of active requests is zero after calling this method, the network activity indicator will stop
+    /// spinning after the `completionDelay`.
+    ///
+    /// Generally, this method should not need to be used directly.
     public func decrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
         guard activityCount > 0 else { return }
