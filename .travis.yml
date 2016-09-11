@@ -5,8 +5,8 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - PROJECT=AlamofireNetworkActivityIndicator.xcodeproj
-  - IOS_FRAMEWORK_SCHEME="AlamofireImage iOS"
-  - IOS_SDK=iphonesimulator10.0
+  - SCHEME="AlamofireNetworkActivityIndicator"
+  - SDK=iphonesimulator10.0
   matrix:
     - DESTINATION="OS=10.0,name=iPhone 7"     POD_LINT="YES"
     - DESTINATION="OS=10.0,name=iPhone 5"     POD_LINT="NO"
@@ -20,10 +20,10 @@ script:
   - xcodebuild -showsdks
 
   # Build Framework in Debug and Run Tests
-  - xcodebuild -project "$PROJECT" -scheme "$IOS_FRAMEWORK_SCHEME" -sdk "$IOS_SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
   
   # Build Framework in Release and Run Tests  
-  - xcodebuild -project "$PROJECT" -scheme "$IOS_FRAMEWORK_SCHEME" -sdk "$IOS_SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
 
   # Temporarily disabled until linting is fixed in CocoaPods for Swift 3
   # # Run `pod lib lint` if specified
