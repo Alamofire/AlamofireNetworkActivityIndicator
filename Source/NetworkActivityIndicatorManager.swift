@@ -31,13 +31,13 @@ import UIKit
 /// animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
 /// greater than zero.
 ///
-/// To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
+/// To use the `NetworkActivityIndicatorManager`, the `shared` instance should be enabled in the
 /// `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
 ///
-///     NetworkActivityIndicatorManager.sharedManager.isEnabled = true
+///     NetworkActivityIndicatorManager.shared.isEnabled = true
 ///
-/// By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
-/// hide automatically as Alamofire requests start and complete. You should not ever need to call
+/// By setting the `isEnabled` property to `true` for the `shared` instance, the network activity indicator will show 
+/// and hide automatically as Alamofire requests start and complete. You should not ever need to call
 /// `incrementActivityCount` and `decrementActivityCount` yourself.
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
@@ -47,7 +47,7 @@ public class NetworkActivityIndicatorManager {
     // MARK: - Properties
 
     /// The shared network activity indicator manager for the system.
-    public static let sharedManager = NetworkActivityIndicatorManager()
+    public static let shared = NetworkActivityIndicatorManager()
 
     /// A boolean value indicating whether the manager is enabled. Defaults to `false`.
     public var isEnabled: Bool {
