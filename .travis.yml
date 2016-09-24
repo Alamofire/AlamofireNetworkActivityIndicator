@@ -25,8 +25,7 @@ script:
   # Build Framework in Release and Run Tests  
   - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
 
-  # Temporarily disabled until linting is fixed in CocoaPods for Swift 3
-  # # Run `pod lib lint` if specified
-  # - if [ $POD_LINT == "YES" ]; then
-  #     pod lib lint;
-  #   fi
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
+    fi
