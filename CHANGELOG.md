@@ -3,13 +3,35 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.0.x` Releases - [2.0.0](#200)
+- `2.0.x` Releases - [2.0.0](#200) | [2.0.1](#201)
 
 #### 1.x Releases
 - `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
 
 ---
+
+## [2.0.1](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.0.1)
+Released on 2016-10-01. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/6?closed=1).
+
+#### Added
+- New `.swift-version` file to repo and reactivated `pod lib lint` in Travis file.
+  - Added by [Christian Noon](https://github.com/cnoon).
+- The `OS_ACTIVITY_MODE` environment variable to disable excessive logging.
+  - Added by [Christian Noon](https://github.com/cnoon).
+
+#### Updated
+- The Alamofire submodule to the 4.0.1 release.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+
+#### Fixed
+- Issue where delay timers were being added to main run loop from non-main queues.
+  - Fixed by [Christian Noon](https://github.com/cnoon) in regards to Issue
+  [#16](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/issues/16).
+- Issue where spinner could be left up indefinitely due to decrement race condition.
+  - Fixed by [Christian Noon](https://github.com/cnoon) in regards to Issue
+  [#14](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/issues/14).
 
 ## [2.0.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.0.0)
 Released on 2016-09-11. All issues associated with this milestone can be found using this
