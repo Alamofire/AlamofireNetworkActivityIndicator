@@ -215,7 +215,7 @@ public class NetworkActivityIndicatorManager {
     // MARK: - Private - Timers
 
     private func scheduleStartDelayTimer() {
-        startDelayTimer = Timer(
+        let timer = Timer(
             timeInterval: startDelay,
             target: self,
             selector: #selector(NetworkActivityIndicatorManager.startDelayTimerFired),
@@ -223,12 +223,16 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        RunLoop.main.add(startDelayTimer!, forMode: .commonModes)
-        RunLoop.main.add(startDelayTimer!, forMode: .UITrackingRunLoopMode)
+        DispatchQueue.main.async {
+            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
+        }
+
+        startDelayTimer = timer
     }
 
     private func scheduleCompletionDelayTimer() {
-        completionDelayTimer = Timer(
+        let timer = Timer(
             timeInterval: completionDelay,
             target: self,
             selector: #selector(NetworkActivityIndicatorManager.completionDelayTimerFired),
@@ -236,8 +240,12 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        RunLoop.main.add(completionDelayTimer!, forMode: .commonModes)
-        RunLoop.main.add(completionDelayTimer!, forMode: .UITrackingRunLoopMode)
+        DispatchQueue.main.async {
+            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
+        }
+
+        completionDelayTimer = timer
     }
 
     @objc private func startDelayTimerFired() {
