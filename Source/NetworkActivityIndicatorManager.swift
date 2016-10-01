@@ -147,7 +147,6 @@ public class NetworkActivityIndicatorManager {
     /// Generally, this method should not need to be used directly.
     public func decrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
-        guard activityCount > 0 else { return }
 
         activityCount -= 1
         updateActivityIndicatorStateForNetworkActivityChange()
