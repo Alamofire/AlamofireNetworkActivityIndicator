@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git', :tag => s.version }
   s.source_files = 'Source/*.swift'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
 
-  s.dependency 'Alamofire', '~> 4.0'
+  s.dependency 'Alamofire', '~> 4.1'
 end
