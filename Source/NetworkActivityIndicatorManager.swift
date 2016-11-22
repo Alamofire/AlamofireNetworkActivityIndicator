@@ -195,6 +195,13 @@ public class NetworkActivityIndicatorManager {
             name: Notification.Name.Task.DidComplete,
             object: nil
         )
+        
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidCancel),
+            name: Notifications.Task.DidCancel,
+            object: nil
+        )
     }
 
     private func unregisterForNotifications() {
@@ -208,6 +215,10 @@ public class NetworkActivityIndicatorManager {
     }
 
     @objc private func networkRequestDidComplete() {
+        decrementActivityCount()
+    }
+    
+    @objc private func networkRequestDidCancel() {
         decrementActivityCount()
     }
 
