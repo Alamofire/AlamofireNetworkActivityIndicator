@@ -270,6 +270,37 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
             XCTAssertFalse(visibilityStates[1])
         }
     }
+    
+    func testThatManagerCanTurnOnAndOffIndicatorWhenRequestIsCancelled() {
+        // Given
+        let manager = NetworkActivityIndicatorManager()
+        manager.startDelay = 0.0
+        manager.completionDelay = 0.0
+        
+        let expectation = self.expectation(description: "visibility should change twice")
+        
+        var visibilityStates: [Bool] = []
+        
+        manager.networkActivityIndicatorVisibilityChanged = { isVisible in
+            visibilityStates.append(isVisible)
+            if visibilityStates.count == 2 { expectation.fulfill() }
+        }
+        
+        // When
+        let requestDelayThree = Alamofire.request("https://httpbin.org/delay/3")
+        let requestDelayFive = Alamofire.request("https://httpbin.org/delay/5")
+        dispatchAfter(2) { requestDelayThree.cancel() }
+        dispatchAfter(4) { requestDelayFive.cancel() }
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        // Then
+        XCTAssertEqual(visibilityStates.count, 2)
+        
+        if visibilityStates.count == 2 {
+            XCTAssertTrue(visibilityStates[0])
+            XCTAssertFalse(visibilityStates[1])
+        }
+    }
 
     func testThatManagerAppliesVisibilityDelaysWhenMakingRequests() {
         // Given
