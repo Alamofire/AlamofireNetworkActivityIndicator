@@ -95,6 +95,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0097AC1EF4CB9A0010778C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		4C0097AD1EF4CB9A0010778C /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		4C0097AE1EF4CB9A0010778C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4C0097AF1EF4CBA40010778C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		4C0097B01EF4CBA40010778C /* AlamofireNetworkActivityIndicator.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AlamofireNetworkActivityIndicator.podspec; sourceTree = "<group>"; };
+		4C0097B11EF4CBA40010778C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		4CB928391C66E1A600CE5F08 /* AlamofireNetworkActivityIndicator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireNetworkActivityIndicator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB928431C66E1A700CE5F08 /* AlamofireNetworkActivityIndicatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireNetworkActivityIndicatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB928561C66E20600CE5F08 /* AlamofireNetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlamofireNetworkActivityIndicator.h; path = Source/AlamofireNetworkActivityIndicator.h; sourceTree = "<group>"; };
@@ -125,9 +131,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0097AA1EF4CB890010778C /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				4C0097AC1EF4CB9A0010778C /* CHANGELOG.md */,
+				4C0097AD1EF4CB9A0010778C /* CONTRIBUTING.md */,
+				4C0097AE1EF4CB9A0010778C /* README.md */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		4C0097AB1EF4CB920010778C /* Deployment */ = {
+			isa = PBXGroup;
+			children = (
+				4C0097B01EF4CBA40010778C /* AlamofireNetworkActivityIndicator.podspec */,
+				4C0097B11EF4CBA40010778C /* Cartfile */,
+				4C0097AF1EF4CBA40010778C /* Package.swift */,
+			);
+			name = Deployment;
+			sourceTree = "<group>";
+		};
 		4CB9282F1C66E1A600CE5F08 = {
 			isa = PBXGroup;
 			children = (
+				4C0097AB1EF4CB920010778C /* Deployment */,
+				4C0097AA1EF4CB890010778C /* Documentation */,
 				4CB928531C66E1E200CE5F08 /* Source */,
 				4CB928541C66E1E800CE5F08 /* Tests */,
 				4CB9283A1C66E1A600CE5F08 /* Products */,

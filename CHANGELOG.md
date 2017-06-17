@@ -3,12 +3,35 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
+- `2.2.x` Releases - [2.2.0](#220)
 - `2.1.x` Releases - [2.1.0](#210)
 - `2.0.x` Releases - [2.0.0](#200) | [2.0.1](#201)
 
 #### 1.x Releases
 - `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
+
+---
+
+## [2.2.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.1.0)
+Released on 2017-06-16. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/6?closed=1).
+
+#### Updated
+- The Alamofire submodule to the 4.5.0 release along with all dependency requirements.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+- Updated all project settings to Xcode 9 for support for Swift 3.1, 3.2, and 4.0.
+  - Updated by [Christian Noon](https://github.com/cnoon).
+
+#### Fixed
+- Issues and typos throughout the README documentation and sample code and source code docstrings.
+  - Fixed by
+  [Eric Horstmanshof](https://github.com/Erulezz),
+  [Martin Arista](https://github.com/mrtnrst), and
+  [Wolfgang Lutz](https://github.com/Lutzifer) in Pull Requests
+  [#21](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/21),
+  [#24](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/24), and
+  [#25](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/25).
 
 ---
 
