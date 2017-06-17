@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 
 ## [2.2.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.1.0)
 Released on 2017-06-16. All issues associated with this milestone can be found using this
-[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/6?closed=1).
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/7?closed=1).
 
 #### Updated
 - The Alamofire submodule to the 4.5.0 release along with all dependency requirements.
