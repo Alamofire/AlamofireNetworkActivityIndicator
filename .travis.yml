@@ -1,19 +1,23 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode9
+branches:
+  only:
+    - master
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - PROJECT=AlamofireNetworkActivityIndicator.xcodeproj
   - SCHEME="AlamofireNetworkActivityIndicator"
-  - SDK=iphonesimulator10.0
   matrix:
-    - DESTINATION="OS=10.0,name=iPhone 7"     POD_LINT="YES"
-    - DESTINATION="OS=10.0,name=iPhone 5"     POD_LINT="NO"
-    - DESTINATION="OS=9.3,name=iPhone 6 Plus" POD_LINT="NO"
-    - DESTINATION="OS=9.1,name=iPhone 5"      POD_LINT="NO"
-    - DESTINATION="OS=9.3,name=iPad 2"        POD_LINT="NO"
-    - DESTINATION="OS=8.1,name=iPhone 4S"     POD_LINT="NO"
+    - DESTINATION="OS=11.0,name=iPhone 8"  POD_LINT="YES"
+    - DESTINATION="OS=10.3,name=iPhone 7"  POD_LINT="NO"
+    - DESTINATION="OS=10.0,name=iPhone 6s" POD_LINT="NO"
+    - DESTINATION="OS=9.3,name=iPhone 6"   POD_LINT="NO"
+    - DESTINATION="OS=9.1,name=iPhone 5"   POD_LINT="NO"
+    - DESTINATION="OS=8.1,name=iPhone 4S"  POD_LINT="NO"
+    
+    - DESTINATION="OS=9.3,name=iPad 2"     POD_LINT="NO"
 script:
   - set -o pipefail
   - git submodule update --init --recursive
@@ -21,10 +25,10 @@ script:
   - xcodebuild -showsdks
 
   # Build Framework in Debug and Run Tests
-  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
 
   # Build Framework in Release and Run Tests  
-  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty -c;
 
   # Run `pod lib lint` if specified
   - if [ $POD_LINT == "YES" ]; then
