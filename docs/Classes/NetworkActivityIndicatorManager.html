@@ -73,7 +73,7 @@
             <h1>NetworkActivityIndicatorManager</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkActivityIndicatorManager</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkActivityIndicatorManager</span></code></pre>
 
                 </div>
               </div>
@@ -84,7 +84,7 @@ greater than zero.</p>
 
 <p>To use the <code>NetworkActivityIndicatorManager</code>, the <code>shared</code> instance should be enabled in the
 <code>application:didFinishLaunchingWithOptions:</code> method in the <code>AppDelegate</code>. This can be done with the following:</p>
-<pre class="highlight plaintext"><code>NetworkActivityIndicatorManager.shared.isEnabled = true
+<pre class="highlight swift"><code><span class="kt">NetworkActivityIndicatorManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">isEnabled</span> <span class="o">=</span> <span class="kc">true</span>
 </code></pre>
 
 <p>By setting the <code>isEnabled</code> property to <code>true</code> for the <code>shared</code> instance, the network activity indicator will show 
@@ -125,7 +125,7 @@ and hide automatically as Alamofire requests start and complete. You should not 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span> <span class="o">=</span> <span class="kt">NetworkActivityIndicatorManager</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span> <span class="o">=</span> <span class="kt">NetworkActivityIndicatorManager</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -152,7 +152,7 @@ and hide automatically as Alamofire requests start and complete. You should not 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -179,7 +179,7 @@ and hide automatically as Alamofire requests start and complete. You should not 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">isNetworkActivityIndicatorVisible</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">isNetworkActivityIndicatorVisible</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
 
                         </div>
                       </div>
@@ -206,7 +206,7 @@ and hide automatically as Alamofire requests start and complete. You should not 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">networkActivityIndicatorVisibilityChanged</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">networkActivityIndicatorVisibilityChanged</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
 
                         </div>
                       </div>
@@ -234,7 +234,7 @@ indicator is displayed. Defaults to <code>1.0</code> second.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startDelay</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">1.0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startDelay</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">1.0</span></code></pre>
 
                         </div>
                       </div>
@@ -263,7 +263,7 @@ requests. Without this delay, the activity indicator tends to flicker. Defaults 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">completionDelay</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">0.2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">completionDelay</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">0.2</span></code></pre>
 
                         </div>
                       </div>
@@ -306,7 +306,7 @@ the <code><a href="../Classes/NetworkActivityIndicatorManager.html#/s:33Alamofir
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">incrementActivityCount</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">incrementActivityCount</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -338,7 +338,7 @@ spinning after the <code><a href="../Classes/NetworkActivityIndicatorManager.htm
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">decrementActivityCount</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">decrementActivityCount</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -353,8 +353,8 @@ spinning after the <code><a href="../Classes/NetworkActivityIndicatorManager.htm
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="http://alamofire.org/" target="_blank" rel="external">Alamofire Software Foundation</a>. All rights reserved. (Last updated: 2017-10-11)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2018 <a class="link" href="http://alamofire.org/" target="_blank" rel="external">Alamofire Software Foundation</a>. All rights reserved. (Last updated: 2018-03-01)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
