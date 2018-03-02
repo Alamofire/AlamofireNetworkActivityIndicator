@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.2
 branches:
   only:
     - master
@@ -10,14 +10,10 @@ env:
   - PROJECT=AlamofireNetworkActivityIndicator.xcodeproj
   - SCHEME="AlamofireNetworkActivityIndicator"
   matrix:
-    - DESTINATION="OS=11.0,name=iPhone 8"    POD_LINT="YES"
+    - DESTINATION="OS=11.2,name=iPhone 8"    POD_LINT="YES"
     - DESTINATION="OS=10.3.1,name=iPhone 7"  POD_LINT="NO"
-    - DESTINATION="OS=10.0,name=iPhone 6s"   POD_LINT="NO"
     - DESTINATION="OS=9.3,name=iPhone 6"     POD_LINT="NO"
-    - DESTINATION="OS=9.1,name=iPhone 5"     POD_LINT="NO"
-    - DESTINATION="OS=8.1,name=iPhone 4S"    POD_LINT="NO"
-    
-    - DESTINATION="OS=9.3,name=iPad 2"       POD_LINT="NO"
+    - DESTINATION="OS=8.4,name=iPhone 4S"    POD_LINT="NO"
 script:
   - set -o pipefail
   - git submodule update --init --recursive
