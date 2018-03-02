@@ -1,0 +1,8 @@
+author: Alamofire Software Foundation
+author_url: http://alamofire.org/
+github_url: https://github.com/Alamofire/AlamofireNetworkActivityIndicator
+root_url: https://alamofire.github.io/AlamofireNetworkActivityIndicator/
+module: AlamofireNetworkActivityIndicator
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-project, 'AlamofireNetworkActivityIndicator.xcodeproj', -scheme, 'AlamofireNetworkActivityIndicator']

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetworkActivityIndicatorManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/NetworkActivityIndicatorManager" class="dashAnchor"></a>
+
+    <a title="NetworkActivityIndicatorManager Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          AlamofireNetworkActivityIndicator Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/Alamofire/AlamofireNetworkActivityIndicator">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Falamofire%2Egithub%2Eio%2FAlamofireNetworkActivityIndicator%2Fdocsets%2FAlamofireNetworkActivityIndicator%2Exml">
+            <img class="header-icon" src="../img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">AlamofireNetworkActivityIndicator Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      NetworkActivityIndicatorManager Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NetworkActivityIndicatorManager.html">NetworkActivityIndicatorManager</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>NetworkActivityIndicatorManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkActivityIndicatorManager</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>NetworkActivityIndicatorManager</code> manages the state of the network activity indicator in the status bar. When
+enabled, it will listen for notifications indicating that a URL session task has started or completed and start
+animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
+greater than zero.</p>
+
+<p>To use the <code>NetworkActivityIndicatorManager</code>, the <code>shared</code> instance should be enabled in the
+<code>application:didFinishLaunchingWithOptions:</code> method in the <code>AppDelegate</code>. This can be done with the following:</p>
+<pre class="highlight swift"><code><span class="kt">NetworkActivityIndicatorManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">isEnabled</span> <span class="o">=</span> <span class="kc">true</span>
+</code></pre>
+
+<p>By setting the <code>isEnabled</code> property to <code>true</code> for the <code>shared</code> instance, the network activity indicator will show 
+and hide automatically as Alamofire requests start and complete. You should not ever need to call
+<code>incrementActivityCount</code> and <code>decrementActivityCount</code> yourself.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC6sharedACvZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC6sharedACvZ">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The shared network activity indicator manager for the system.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span> <span class="o">=</span> <span class="kt">NetworkActivityIndicatorManager</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC9isEnabledSbv"></a>
+                    <a name="//apple_ref/swift/Property/isEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC9isEnabledSbv">isEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicating whether the manager is enabled. Defaults to <code>false</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC02isbcD7VisibleSbv"></a>
+                    <a name="//apple_ref/swift/Property/isNetworkActivityIndicatorVisible" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC02isbcD7VisibleSbv">isNetworkActivityIndicatorVisible</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicating whether the network activity indicator is currently visible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">isNetworkActivityIndicatorVisible</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC07networkcD17VisibilityChangedySbcSgv"></a>
+                    <a name="//apple_ref/swift/Property/networkActivityIndicatorVisibilityChanged" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC07networkcD17VisibilityChangedySbcSgv">networkActivityIndicatorVisibilityChanged</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A closure executed when the network activity indicator visibility changes.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">networkActivityIndicatorVisibilityChanged</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC10startDelaySdv"></a>
+                    <a name="//apple_ref/swift/Property/startDelay" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC10startDelaySdv">startDelay</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A time interval indicating the minimum duration of networking activity that should occur before the activity
+indicator is displayed. Defaults to <code>1.0</code> second.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">startDelay</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">1.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC15completionDelaySdv"></a>
+                    <a name="//apple_ref/swift/Property/completionDelay" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC15completionDelaySdv">completionDelay</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A time interval indicating the duration of time that no networking activity should be observed before dismissing
+the activity indicator. This allows the activity indicator to be continuously displayed between multiple network
+requests. Without this delay, the activity indicator tends to flicker. Defaults to <code>0.2</code> seconds.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">completionDelay</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="o">=</span> <span class="mf">0.2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Activity%20Count"></a>
+                <a name="//apple_ref/swift/Section/Activity Count" class="dashAnchor"></a>
+                <a href="#/Activity%20Count">
+                  <h3 class="section-name">Activity Count</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC09incrementC5CountyyF"></a>
+                    <a name="//apple_ref/swift/Method/incrementActivityCount()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC09incrementC5CountyyF">incrementActivityCount()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Increments the number of active network requests.</p>
+
+<p>If this number was zero before incrementing, the network activity indicator will start spinning after
+the <code><a href="../Classes/NetworkActivityIndicatorManager.html#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC10startDelaySdv">startDelay</a></code>.</p>
+
+<p>Generally, this method should not need to be used directly.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">incrementActivityCount</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC09decrementC5CountyyF"></a>
+                    <a name="//apple_ref/swift/Method/decrementActivityCount()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC09decrementC5CountyyF">decrementActivityCount()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decrements the number of active network requests.</p>
+
+<p>If the number of active requests is zero after calling this method, the network activity indicator will stop
+spinning after the <code><a href="../Classes/NetworkActivityIndicatorManager.html#/s:33AlamofireNetworkActivityIndicator0bcD7ManagerC15completionDelaySdv">completionDelay</a></code>.</p>
+
+<p>Generally, this method should not need to be used directly.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">decrementActivityCount</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="http://alamofire.org/" target="_blank" rel="external">Alamofire Software Foundation</a>. All rights reserved. (Last updated: 2018-03-01)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
