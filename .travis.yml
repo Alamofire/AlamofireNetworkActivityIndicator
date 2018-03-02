@@ -17,6 +17,7 @@ env:
 script:
   - set -o pipefail
   - git submodule update --init --recursive
+  - pod repo update
   - xcodebuild -version
   - xcodebuild -showsdks
 
