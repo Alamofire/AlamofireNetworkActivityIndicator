@@ -14,10 +14,11 @@ env:
     - DESTINATION="OS=10.3.1,name=iPhone 7"  POD_LINT="NO"
     - DESTINATION="OS=9.3,name=iPhone 6"     POD_LINT="NO"
     - DESTINATION="OS=8.4,name=iPhone 4S"    POD_LINT="NO"
+before_install:
+  - pod repo update > /dev/null
 script:
   - set -o pipefail
   - git submodule update --init --recursive
-  - pod repo update
   - xcodebuild -version
   - xcodebuild -showsdks
 
