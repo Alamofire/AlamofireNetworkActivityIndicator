@@ -36,7 +36,7 @@ import UIKit
 ///
 ///     NetworkActivityIndicatorManager.shared.isEnabled = true
 ///
-/// By setting the `isEnabled` property to `true` for the `shared` instance, the network activity indicator will show 
+/// By setting the `isEnabled` property to `true` for the `shared` instance, the network activity indicator will show
 /// and hide automatically as Alamofire requests start and complete. You should not ever need to call
 /// `incrementActivityCount` and `decrementActivityCount` yourself.
 public class NetworkActivityIndicatorManager {
