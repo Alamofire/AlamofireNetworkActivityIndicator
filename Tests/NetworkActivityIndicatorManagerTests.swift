@@ -1,7 +1,7 @@
 //
 //  NetworkActivityIndicatorManagerTests.swift
 //
-//  Copyright (c) 2016 Alamofire Software Foundation (http://alamofire.org/)
+//  Copyright (c) 2016-2018 Alamofire Software Foundation (http://alamofire.org/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -111,7 +111,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatchAfter(0.05) { manager.decrementActivityCount() }
 
         let expectation = self.expectation(description: "visibility should change twice")
-        dispatchAfter(0.1) { expectation.fulfill() }
+        dispatchAfter(0.2) { expectation.fulfill() }
 
         waitForExpectations(timeout: timeout, handler: nil)
 

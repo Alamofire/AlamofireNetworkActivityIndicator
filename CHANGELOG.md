@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
-- `2.2.x` Releases - [2.2.0](#220)
+- `2.2.x` Releases - [2.2.0](#220) | [2.2.1](#221)
 - `2.1.x` Releases - [2.1.0](#210)
 - `2.0.x` Releases - [2.0.0](#200) | [2.0.1](#201)
 
@@ -13,7 +13,25 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.2.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.1.0)
+## [2.2.1](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.2.1)
+Released on 2018-03-31. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/8?closed=1).
+
+#### Added
+- Jazzy docs.
+  - Added by [Jon Shier](https://github.com/jshier) in Pull Request [#28](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/28).
+- Pull request and issue templates.
+  - Added by [Jon Shier](https://github.com/jshier) in Pull Request [#28](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/28).
+
+#### Updated
+- Project settings and dependencies for Xcode 9.3 and Swift 4.1.
+  - Updated by [Jon Shier](https://github.com/jshier) in Pull Request [#33](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/33).
+
+#### Fixed
+- Swift Package Manager integration by removing Swift Package Manager support.
+  - Fixed by [Jon Shier](https://github.com/jshier) in Pull Request [#28](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/28).
+
+## [2.2.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.2.0)
 Released on 2017-06-16. All issues associated with this milestone can be found using this
 [filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/7?closed=1).
 
