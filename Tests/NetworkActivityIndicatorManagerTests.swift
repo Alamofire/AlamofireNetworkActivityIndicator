@@ -111,7 +111,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatchAfter(0.05) { manager.decrementActivityCount() }
 
         let expectation = self.expectation(description: "visibility should change twice")
-        dispatchAfter(0.1) { expectation.fulfill() }
+        dispatchAfter(0.2) { expectation.fulfill() }
 
         waitForExpectations(timeout: timeout, handler: nil)
 
