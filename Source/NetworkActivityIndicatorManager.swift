@@ -22,9 +22,32 @@
 //  THE SOFTWARE.
 //
 
-import Alamofire
 import Foundation
 import UIKit
+
+#if canImport(Alamofire)
+import Alamofire
+
+/// By default, listen to Alamofire resume notifications
+public let defaultRequestDidStartNotificationNames: [Notification.Name] = [
+    Notification.Name.Task.DidResume,
+]
+
+/// By default, listen to Alamofire suspend and complete notifications
+public let defaultRequestDidStopNotificationNames: [Notification.Name] = [
+    Notification.Name.Task.DidSuspend,
+    Notification.Name.Task.DidComplete,
+]
+
+#else
+
+/// No defaults, when Alamofire is not included
+public let defaultRequestDidStartNotificationNames: [Notification.Name] = []
+
+/// No defaults, when Alamofire is not included
+public let defaultRequestDidStopNotificationNames: [Notification.Name] = []
+
+#endif
 
 /// The `NetworkActivityIndicatorManager` manages the state of the network activity indicator in the status bar. When
 /// enabled, it will listen for notifications indicating that a URL session task has started or completed and start
@@ -172,29 +195,29 @@ public class NetworkActivityIndicatorManager {
 
     // MARK: - Private - Notification Registration
 
-    private func registerForNotifications() {
+    public func registerForNotifications(
+        requestDidStartNotificationNames: [Notification.Name] = defaultRequestDidStartNotificationNames,
+        requestDidStopNotificationNames: [Notification.Name] = defaultRequestDidStopNotificationNames
+    ) {
         let notificationCenter = NotificationCenter.default
 
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
-            name: Notification.Name.Task.DidResume,
-            object: nil
-        )
+        for name in requestDidStartNotificationNames {
+            notificationCenter.addObserver(
+                self,
+                selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
+                name: name,
+                object: nil
+            )
+        }
 
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notification.Name.Task.DidSuspend,
-            object: nil
-        )
-
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notification.Name.Task.DidComplete,
-            object: nil
-        )
+        for name in requestDidStopNotificationNames {
+            notificationCenter.addObserver(
+                self,
+                selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
+                name: name,
+                object: nil
+            )
+        }
     }
 
     private func unregisterForNotifications() {
