@@ -29,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		13490CB62082C5DC0023A3DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CB928641C66E61400CE5F08 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 		4CB928451C66E1A700CE5F08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CB928301C66E1A600CE5F08 /* Project object */;
@@ -84,13 +91,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
-		};
-		4CB928801C66E64300CE5F08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4CB928641C66E61400CE5F08 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -245,7 +245,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4CB928811C66E64300CE5F08 /* PBXTargetDependency */,
 			);
 			name = AlamofireNetworkActivityIndicator;
 			productName = AlamofireNetworkActivityIndicator;
@@ -263,6 +262,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				13490CB72082C5DC0023A3DF /* PBXTargetDependency */,
 				4CB928461C66E1A700CE5F08 /* PBXTargetDependency */,
 			);
 			name = AlamofireNetworkActivityIndicatorTests;
@@ -425,15 +425,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		13490CB72082C5DC0023A3DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 13490CB62082C5DC0023A3DF /* PBXContainerItemProxy */;
+		};
 		4CB928461C66E1A700CE5F08 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4CB928381C66E1A600CE5F08 /* AlamofireNetworkActivityIndicator */;
 			targetProxy = 4CB928451C66E1A700CE5F08 /* PBXContainerItemProxy */;
-		};
-		4CB928811C66E64300CE5F08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = 4CB928801C66E64300CE5F08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
