@@ -98,7 +98,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
     func testThatManagerAppliesStartDelayWhenManuallyControllingActivityCount() {
         // Given
         let manager = NetworkActivityIndicatorManager()
-        manager.startDelay = 0.1
+        manager.startDelay = 0.2
 
         var visibilityStates: [Bool] = []
 
@@ -111,7 +111,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatchAfter(0.05) { manager.decrementActivityCount() }
 
         let expectation = self.expectation(description: "visibility should change twice")
-        dispatchAfter(0.2) { expectation.fulfill() }
+        dispatchAfter(0.4) { expectation.fulfill() }
 
         waitForExpectations(timeout: timeout, handler: nil)
 
