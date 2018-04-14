@@ -98,7 +98,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
     func testThatManagerAppliesStartDelayWhenManuallyControllingActivityCount() {
         // Given
         let manager = NetworkActivityIndicatorManager()
-        manager.startDelay = 0.1
+        manager.startDelay = 0.2
 
         var visibilityStates: [Bool] = []
 
@@ -111,7 +111,7 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         dispatchAfter(0.05) { manager.decrementActivityCount() }
 
         let expectation = self.expectation(description: "visibility should change twice")
-        dispatchAfter(0.2) { expectation.fulfill() }
+        dispatchAfter(0.4) { expectation.fulfill() }
 
         waitForExpectations(timeout: timeout, handler: nil)
 
@@ -328,6 +328,48 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
             XCTAssertTrue(visibilityStates[0])
             XCTAssertFalse(visibilityStates[1])
         }
+    }
+
+    func testThatRegisteredNotificationsChangeTheActivityCount() {
+
+        let startNotificationName = Notification.Name(rawValue: "testRequestStart")
+        let endNotificationName = Notification.Name(rawValue: "testRequestEnd")
+
+        let manager = NetworkActivityIndicatorManager()
+        manager.startDelay = 0.5
+        manager.completionDelay = 0.5
+        manager.registerForNotifications(
+            requestDidStartNotificationNames: [startNotificationName],
+            requestDidStopNotificationNames: [endNotificationName]
+        )
+
+        var visibilityStates: [Bool] = []
+
+        let visibleExpectation = self.expectation(description: "should become visible")
+        manager.networkActivityIndicatorVisibilityChanged = { isVisible in
+            visibilityStates.append(isVisible)
+            visibleExpectation.fulfill()
+        }
+
+        // When
+        NotificationCenter.default.post(name: startNotificationName, object: nil)
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        let invisibleExpectation = self.expectation(description: "should become invisible")
+        manager.networkActivityIndicatorVisibilityChanged = { isVisible in
+            visibilityStates.append(isVisible)
+            invisibleExpectation.fulfill()
+        }
+
+        // When
+        NotificationCenter.default.post(name: endNotificationName, object: nil)
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertEqual(visibilityStates, [true, false])
+
     }
 }
 
