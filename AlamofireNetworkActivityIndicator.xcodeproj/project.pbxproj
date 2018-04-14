@@ -21,11 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		13490CA52082BF270023A3DF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB9286F1C66E61400CE5F08 /* Alamofire.framework */; };
 		4CB928441C66E1A700CE5F08 /* AlamofireNetworkActivityIndicator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB928391C66E1A600CE5F08 /* AlamofireNetworkActivityIndicator.framework */; };
 		4CB928581C66E20600CE5F08 /* AlamofireNetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB928561C66E20600CE5F08 /* AlamofireNetworkActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CB9285C1C66E21100CE5F08 /* NetworkActivityIndicatorManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9285A1C66E21100CE5F08 /* NetworkActivityIndicatorManagerTests.swift */; };
 		4CB9285F1C66E22E00CE5F08 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9285E1C66E22E00CE5F08 /* NetworkActivityIndicatorManager.swift */; };
-		4CB9287C1C66E62400CE5F08 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB9286F1C66E61400CE5F08 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CB9287C1C66E62400CE5F08 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13490CA52082BF270023A3DF /* Alamofire.framework in Frameworks */,
 				4CB928441C66E1A700CE5F08 /* AlamofireNetworkActivityIndicator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
