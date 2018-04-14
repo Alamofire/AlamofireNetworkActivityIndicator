@@ -329,6 +329,48 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
             XCTAssertFalse(visibilityStates[1])
         }
     }
+
+    func testThatRegisteredNotificationsChangeTheActivityCount() {
+
+        let startNotificationName = Notification.Name(rawValue: "testRequestStart")
+        let endNotificationName = Notification.Name(rawValue: "testRequestEnd")
+
+        let manager = NetworkActivityIndicatorManager()
+        manager.startDelay = 0.5
+        manager.completionDelay = 0.5
+        manager.registerForNotifications(
+            requestDidStartNotificationNames: [startNotificationName],
+            requestDidStopNotificationNames: [endNotificationName]
+        )
+
+        var visibilityStates: [Bool] = []
+
+        let visibleExpectation = self.expectation(description: "should become visible")
+        manager.networkActivityIndicatorVisibilityChanged = { isVisible in
+            visibilityStates.append(isVisible)
+            visibleExpectation.fulfill()
+        }
+
+        // When
+        NotificationCenter.default.post(name: startNotificationName, object: nil)
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        let invisibleExpectation = self.expectation(description: "should become invisible")
+        manager.networkActivityIndicatorVisibilityChanged = { isVisible in
+            visibilityStates.append(isVisible)
+            invisibleExpectation.fulfill()
+        }
+
+        // When
+        NotificationCenter.default.post(name: endNotificationName, object: nil)
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertEqual(visibilityStates, [true, false])
+
+    }
 }
 
 // MARK: -
