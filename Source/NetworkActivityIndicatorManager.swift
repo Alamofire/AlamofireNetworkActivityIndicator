@@ -178,21 +178,21 @@ public class NetworkActivityIndicatorManager {
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
-            name: Notification.Name.Task.DidResume,
+            name: .afDidResume,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notification.Name.Task.DidSuspend,
+            name: .afDidSuspend,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notification.Name.Task.DidComplete,
+            name: .afDidComplete,
             object: nil
         )
     }
