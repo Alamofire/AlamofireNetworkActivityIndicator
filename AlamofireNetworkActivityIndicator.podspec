@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/Alamofire/AlamofireNetworkActivityIndicator'
   s.social_media_url = 'http://twitter.com/AlamofireSF'
   s.authors = { 'Alamofire Software Foundation' => 'info@alamofire.org' }
+  s.documentation_url = 'https://alamofire.github.io/AlamofireNetworkActivityIndicator/'
 
   s.source = { :git => 'https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git', :tag => s.version }
   s.source_files = 'Source/*.swift'
