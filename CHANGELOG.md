@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 ---
 
 ## [2.4.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.4.0)
-Released on 2018-09-15. All issues associated with this milestone can be found using this
+Released on 2019-04-06. All issues associated with this milestone can be found using this
 [filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/10?closed=1).
 
 #### Updated
