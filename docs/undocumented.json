@@ -1,6 +1,12 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/jshier/Desktop/Code/AlamofireNetworkActivityIndicator/Source/NetworkActivityIndicatorManager.swift",
+      "line": 120,
+      "symbol": "NetworkActivityIndicatorManager.deinit",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/jshier/Desktop/Code/AlamofireNetworkActivityIndicator"
 }

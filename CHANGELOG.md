@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 2.x Releases
+- `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230)
 - `2.2.x` Releases - [2.2.0](#220) | [2.2.1](#221)
 - `2.1.x` Releases - [2.1.0](#210)
@@ -13,6 +14,16 @@ All notable changes to this project will be documented in this file.
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
 
 ---
+
+## [2.4.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.4.0)
+Released on 2019-04-06. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/10?closed=1).
+
+#### Updated
+- Project to use Swift 4 as the default language version for compatiblity with the Swift 5 compiler and Xcode 10.2.
+  - Updated by [Ryan Zulkoski](https://github.com/rzulkoski) in Pull Request [#44](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/44).
+
+--
 
 ## [2.3.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.3.0)
 Released on 2018-09-15. All issues associated with this milestone can be found using this
@@ -25,6 +36,8 @@ Released on 2018-09-15. All issues associated with this milestone can be found u
 #### Fixed
 - Bitcode settings.
   - Fixed by [Jaehong Kang](https://github.com/sinoru) in Pull Request [#35](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/35).
+
+--
 
 ## [2.2.1](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/2.2.1)
 Released on 2018-03-31. All issues associated with this milestone can be found using this

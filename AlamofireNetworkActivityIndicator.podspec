@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'AlamofireNetworkActivityIndicator'
-  s.version = '2.3.0'
+  s.version = '2.4.0'
   s.license = 'MIT'
   s.summary = 'Controls the visibility of the network activity indicator on iOS using Alamofire'
   s.homepage = 'https://github.com/Alamofire/AlamofireNetworkActivityIndicator'
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.dependency 'Alamofire', '~> 4.7'
+  s.dependency 'Alamofire', '~> 4.8'
 end
