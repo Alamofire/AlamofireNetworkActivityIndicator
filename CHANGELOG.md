@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
+#### 3.x Releases
+- `3.0.0` Betas - [3.0.0-beta.1](#300-beta1)
+
 #### 2.x Releases
 - `2.4.x` Releases - [2.4.0](#240)
 - `2.3.x` Releases - [2.3.0](#230)
@@ -12,6 +15,24 @@ All notable changes to this project will be documented in this file.
 #### 1.x Releases
 - `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
+
+---
+
+## [3.0.0-beta.1](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0-beta.1)
+Released on 2019-04-10. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/11?closed=1).
+
+#### Added
+- New `requestDidStart` and `requestDidStop` APIs based on `requestIDs` to replace the increment and decrement activity count APIs.
+  - Added by [Christian Noon](https://github.com/cnoon) in Pull Request [#49](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/49).
+
+#### Updated
+- Project to use Swift 5 only and require Alamofire 5.0.0-beta.4+ as a dependency.
+  - Updated by [Christian Noon](https://github.com/cnoon) in Pull Request [#48](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/48).
+
+#### Fixed
+- Issue where activity count could become negative causing the network activity indicator to not display correctly.
+  - Fixed by [Christian Noon](https://github.com/cnoon) in regards to Issue [#38](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/issues/38) in Pull Request [#49](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/49).
 
 ---
 
@@ -132,7 +153,7 @@ Released on 2016-09-11. All issues associated with this milestone can be found u
   - Updated by [Christian Noon](https://github.com/cnoon).
 - The podspec version to 2.0.0 and bumped deployment target and dependency.
   - Updated by [Christian Noon](https://github.com/cnoon).
-- Project settings by running Swift 3 conversion tool and setting 
+- Project settings by running Swift 3 conversion tool and setting
   ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES to YES.
   - Updated by [Christian Noon](https://github.com/cnoon).
 - The travis-ci yaml file to build against Xcode 8 osx_image.
