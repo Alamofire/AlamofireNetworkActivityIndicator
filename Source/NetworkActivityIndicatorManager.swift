@@ -178,21 +178,21 @@ public class NetworkActivityIndicatorManager {
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
-            name: Notification.Name.Task.DidResume,
+            name: Request.didResume,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notification.Name.Task.DidSuspend,
+            name: Request.didSuspend,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidComplete),
-            name: Notification.Name.Task.DidComplete,
+            name: Request.didFinish,
             object: nil
         )
     }
@@ -223,13 +223,8 @@ public class NetworkActivityIndicatorManager {
         )
 
         DispatchQueue.main.async {
-            #if swift(>=4.2)
             RunLoop.main.add(timer, forMode: .common)
             RunLoop.main.add(timer, forMode: .tracking)
-            #else
-            RunLoop.main.add(timer, forMode: .commonModes)
-            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
-            #endif
         }
 
         startDelayTimer = timer
@@ -245,13 +240,8 @@ public class NetworkActivityIndicatorManager {
         )
 
         DispatchQueue.main.async {
-            #if swift(>=4.2)
             RunLoop.main.add(timer, forMode: .common)
             RunLoop.main.add(timer, forMode: .tracking)
-            #else
-            RunLoop.main.add(timer, forMode: .commonModes)
-            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
-            #endif
         }
 
         completionDelayTimer = timer
