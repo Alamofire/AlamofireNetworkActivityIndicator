@@ -87,8 +87,6 @@ public class NetworkActivityIndicatorManager {
 
     private var activityIndicatorState: ActivityIndicatorState = .notActive {
         didSet {
-            lock.lock() ; defer { lock.unlock() }
-
             switch activityIndicatorState {
             case .notActive:
                 isNetworkActivityIndicatorVisible = false
