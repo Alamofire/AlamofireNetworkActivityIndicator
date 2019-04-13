@@ -176,21 +176,21 @@ public class NetworkActivityIndicatorManager {
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStart),
-            name: Request.didResume,
+            name: Request.didResumeNotification,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStop),
-            name: Request.didSuspend,
+            name: Request.didSuspendNotification,
             object: nil
         )
 
         notificationCenter.addObserver(
             self,
             selector: #selector(NetworkActivityIndicatorManager.networkRequestDidStop),
-            name: Request.didFinish,
+            name: Request.didFinishNotification,
             object: nil
         )
     }
