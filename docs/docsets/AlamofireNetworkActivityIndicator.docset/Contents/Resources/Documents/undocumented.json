@@ -2,7 +2,7 @@
   "warnings": [
     {
       "file": "/Users/cnoon/Programming/GitHub/Alamofire/AlamofireNetworkActivityIndicator/Source/NetworkActivityIndicatorManager.swift",
-      "line": 122,
+      "line": 120,
       "symbol": "NetworkActivityIndicatorManager.deinit",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
