@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
-- `3.0.0` Betas - [3.0.0-beta.1](#300-beta1)
+- `3.0.0` Betas - [3.0.0-beta.1](#300-beta1) | [3.0.0-beta.2](#300-beta2)
 
 #### 2.x Releases
 - `2.4.x` Releases - [2.4.0](#240)
@@ -17,6 +17,16 @@ All notable changes to this project will be documented in this file.
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
 
 ---
+
+## [3.0.0-beta.2](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0-beta.2)
+Released on 2019-04-13. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/12?closed=1).
+
+#### Updated
+- Project to require Alamofire 5.0.0-beta.5+ as a dependency.
+  - Updated by [Christian Noon](https://github.com/cnoon) in Pull Request [#51](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/51).
+- Activity tracking to monitor task events rather than request events to improve accuracy.
+  - Updated by [Christian Noon](https://github.com/cnoon) in Pull Request [#52](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/52).
 
 ## [3.0.0-beta.1](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0-beta.1)
 Released on 2019-04-10. All issues associated with this milestone can be found using this
