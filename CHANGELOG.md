@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
-- `3.0.0` Betas - [3.0.0-beta.1](#300-beta1) | [3.0.0-beta.2](#300-beta2)
+- `3.0.0` Betas - [3.0.0-beta.1](#300-beta1) | [3.0.0-beta.2](#300-beta2) |  | [3.0.0-beta.3](#300-beta3)
 
 #### 2.x Releases
 - `2.4.x` Releases - [2.4.0](#240)
@@ -17,6 +17,16 @@ All notable changes to this project will be documented in this file.
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
 
 ---
+
+## [3.0.0-beta.3](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0-beta.3)
+Released on 2019-05-04. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/13?closed=1).
+
+#### Fixed
+- Issue with AppStore submissions where the pre-release version in the bundle short versions string was being rejected when built with Carthage or as a submodule.
+  - Fixed by [xGoPox](https://github.com/xGoPox) in Pull Request [#55](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/55).
+- Issue in the Carthage installation instructions in the README.
+  - Fixed by [Cícero Camargo](https://github.com/cicerocamargo) in Pull Request [#54](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/54).
 
 ## [3.0.0-beta.2](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0-beta.2)
 Released on 2019-04-13. All issues associated with this milestone can be found using this
