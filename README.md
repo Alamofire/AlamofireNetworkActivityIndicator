@@ -52,6 +52,12 @@ pod 'AlamofireNetworkActivityIndicator', '~> 2.4'
 github "Alamofire/AlamofireNetworkActivityIndicator" ~> 2.4.0
 ```
 
+### Swift Package Manager (required Xcode 11)
+
+1. Select File > Swift Packages > Add Package Dependency. Enter `https://github.com/Alamofire/AlamofireNetworkActivityIndicator` in the "Choose Package Repository" dialog.
+2. In the next page, specify the version resolving rule as "Up to Next Major" with "3.0.0-beta.4" as its earliest version.
+3. After Xcode checking out the source and resolving the version, you can choose the "AlamofireNetworkActivityIndicator" library and add it to your app target.
+
 ### Manually
 
 If you prefer not to use either of the aforementioned dependency managers, you can integrate AlamofireNetworkActivityIndicator into your project manually.
