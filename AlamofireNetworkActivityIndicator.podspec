@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.swift_version = '5.0'
+  s.swift_versions = ['5.0', '5.1']
 
   s.dependency 'Alamofire', '~> 5.0'
 end
