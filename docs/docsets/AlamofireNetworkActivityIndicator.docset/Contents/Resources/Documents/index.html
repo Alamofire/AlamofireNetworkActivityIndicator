@@ -22,7 +22,7 @@
         <a class="header-link" href="index.html">
           AlamofireNetworkActivityIndicator Docs
         </a>
-         (90% documented)
+         (100% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -68,7 +68,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             
             <h1 id='alamofirenetworkactivityindicator' class='heading'>AlamofireNetworkActivityIndicator</h1>
 
@@ -91,14 +91,14 @@
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
-<li>iOS 8.0+</li>
-<li>Xcode 9.0+</li>
-<li>Swift 4.0+</li>
+<li>iOS 10.0+</li>
+<li>Xcode 10.2+</li>
+<li>Swift 5.0+</li>
 </ul>
 <h2 id='dependencies' class='heading'>Dependencies</h2>
 
 <ul>
-<li><a href="https://github.com/Alamofire/Alamofire">Alamofire 4.8+</a></li>
+<li><a href="https://github.com/Alamofire/Alamofire">Alamofire 5.0+</a></li>
 </ul>
 <h2 id='communication' class='heading'>Communication</h2>
 
@@ -113,28 +113,35 @@
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <p><a href="https://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
-<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AlamofireNetworkActivityIndicator'</span><span class="p">,</span> <span class="s1">'~&gt; 2.4'</span>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'AlamofireNetworkActivityIndicator'</span><span class="p">,</span> <span class="s1">'~&gt; 3.0'</span>
 </code></pre>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
 <p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Alamofire into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
-<pre class="highlight plaintext"><code>github "Alamofire/AlamofireNetworkActivityIndicator" ~&gt; 2.4.0
+<pre class="highlight plaintext"><code>github "Alamofire/AlamofireNetworkActivityIndicator" ~&gt; 3.0
 </code></pre>
+<h3 id='swift-package-manager-requires-xcode-11' class='heading'>Swift Package Manager (requires Xcode 11)</h3>
+
+<ol>
+<li>Select File &gt; Swift Packages &gt; Add Package Dependency. Enter <code>https://github.com/Alamofire/AlamofireNetworkActivityIndicator</code> in the &ldquo;Choose Package Repository&rdquo; dialog.</li>
+<li>In the next page, specify the version resolving rule as &ldquo;Up to Next Major&rdquo; with &ldquo;3.0.0&rdquo; as its earliest version.</li>
+<li>After Xcode checking out the source and resolving the version, you can choose the &ldquo;AlamofireNetworkActivityIndicator&rdquo; library and add it to your app target.</li>
+</ol>
 <h3 id='manually' class='heading'>Manually</h3>
 
 <p>If you prefer not to use either of the aforementioned dependency managers, you can integrate AlamofireNetworkActivityIndicator into your project manually.</p>
 <h4 id='embedded-framework' class='heading'>Embedded Framework</h4>
 
 <ul>
-<li>Open up Terminal, <code>cd</code> into your top-level project directory, and run the following command <q>if</q> your project is not initialized as a git repository:</li>
+<li>Open up Terminal, <code>cd</code> into your top-level project directory, and run the following command &ldquo;if&rdquo; your project is not initialized as a git repository:</li>
 </ul>
-<pre class="highlight shell"><code><span class="nv">$ </span>git init
+<pre class="highlight shell"><code><span class="gp">$ </span>git init
 </code></pre>
 
 <ul>
 <li>Add AlamofireNetworkActivityIndicator as a git <a href="http://git-scm.com/docs/git-submodule">submodule</a> by running the following command:</li>
 </ul>
-<pre class="highlight shell"><code><span class="nv">$ </span>git submodule add https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git
+<pre class="highlight shell"><code><span class="gp">$ </span>git submodule add https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git
 </code></pre>
 
 <ul>
@@ -144,9 +151,9 @@
 <p>It should appear nested underneath your application&rsquo;s blue project icon. Whether it is above or below all the other Xcode groups does not matter.</p>
 </blockquote></li>
 <li><p>Select the <code>AlamofireNetworkActivityIndicator.xcodeproj</code> in the Project Navigator and verify the deployment target matches that of your application target.</p></li>
-<li><p>Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the <q>Targets</q> heading in the sidebar.</p></li>
-<li><p>In the tab bar at the top of that window, open the <q>General</q> panel.</p></li>
-<li><p>Click on the <code>+</code> button under the <q>Embedded Binaries</q> section.</p></li>
+<li><p>Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the &ldquo;Targets&rdquo; heading in the sidebar.</p></li>
+<li><p>In the tab bar at the top of that window, open the &ldquo;General&rdquo; panel.</p></li>
+<li><p>Click on the <code>+</code> button under the &ldquo;Embedded Binaries&rdquo; section.</p></li>
 <li><p>You will see two different <code>AlamofireNetworkActivityIndicator.xcodeproj</code> folders each with two different versions of the <code>AlamofireNetworkActivityIndicator.framework</code> nested inside a <code>Products</code> folder.</p>
 
 <blockquote>
@@ -234,8 +241,8 @@ Any amount you can donate today to help us reach our goal would be greatly appre
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="http://alamofire.org/" target="_blank" rel="external">Alamofire Software Foundation</a>. All rights reserved. (Last updated: 2019-05-04)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="http://alamofire.org/" target="_blank" rel="external">Alamofire Software Foundation</a>. All rights reserved. (Last updated: 2020-02-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
