@@ -22,8 +22,8 @@
 //  THE SOFTWARE.
 //
 
-import Alamofire
 @testable import AlamofireNetworkActivityIndicator
+import Alamofire
 import Foundation
 import XCTest
 
@@ -254,18 +254,21 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.0
 
-        let expectation = self.expectation(description: "visibility should change twice")
+        let visibility = expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
         manager.networkActivityIndicatorVisibilityChanged = { isVisible in
             visibilityStates.append(isVisible)
-            if visibilityStates.count == 2 { expectation.fulfill() }
+            if visibilityStates.count == 2 { visibility.fulfill() }
         }
 
+        let request = expectation(description: "request should complete")
+
         // When
-        let _ = AF.request("https://httpbin.org/delay/1")
-        waitForExpectations(timeout: timeout, handler: nil)
+        AF.request("https://httpbin.org/delay/1").response { _ in request.fulfill() }
+
+        waitForExpectations(timeout: timeout)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -282,18 +285,21 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.0
         manager.completionDelay = 0.0
 
-        let expectation = self.expectation(description: "visibility should change twice")
+        let visibility = expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
         manager.networkActivityIndicatorVisibilityChanged = { isVisible in
             visibilityStates.append(isVisible)
-            if visibilityStates.count == 2 { expectation.fulfill() }
+            if visibilityStates.count == 2 { visibility.fulfill() }
         }
 
+        let request = expectation(description: "request should complete")
+
         // When
-        let _ = AF.request("https://httpbin.org/status/404")
-        waitForExpectations(timeout: timeout, handler: nil)
+        AF.request("https://httpbin.org/status/404").response { _ in request.fulfill() }
+
+        waitForExpectations(timeout: timeout)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -310,18 +316,21 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.1
         manager.completionDelay = 0.5
 
-        let expectation = self.expectation(description: "visibility should change twice")
+        let visibility = expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
         manager.networkActivityIndicatorVisibilityChanged = { isVisible in
             visibilityStates.append(isVisible)
-            if visibilityStates.count == 2 { expectation.fulfill() }
+            if visibilityStates.count == 2 { visibility.fulfill() }
         }
 
+        let request = expectation(description: "request should complete")
+
         // When
-        let _ = AF.request("https://httpbin.org/delay/1")
-        waitForExpectations(timeout: timeout, handler: nil)
+        AF.request("https://httpbin.org/delay/1").response { _ in request.fulfill() }
+
+        waitForExpectations(timeout: timeout)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)
@@ -338,21 +347,24 @@ class NetworkActivityIndicatorManagerTestCase: XCTestCase {
         manager.startDelay = 0.1
         manager.completionDelay = 0.5
 
-        let expectation = self.expectation(description: "visibility should change twice")
+        let visibility = expectation(description: "visibility should change twice")
 
         var visibilityStates: [Bool] = []
 
         manager.networkActivityIndicatorVisibilityChanged = { isVisible in
             visibilityStates.append(isVisible)
-            if visibilityStates.count == 2 { expectation.fulfill() }
+            if visibilityStates.count == 2 { visibility.fulfill() }
         }
 
-        // When
-        let _ = AF.request("https://httpbin.org/delay/1")
-        let _ = AF.request("https://httpbin.org/delay/1")
-        let _ = AF.request("https://httpbin.org/delay/1")
+        let request = expectation(description: "request should complete")
+        request.expectedFulfillmentCount = 3
 
-        waitForExpectations(timeout: timeout, handler: nil)
+        // When
+        AF.request("https://httpbin.org/delay/1").response { _ in request.fulfill() }
+        AF.request("https://httpbin.org/delay/1").response { _ in request.fulfill() }
+        AF.request("https://httpbin.org/delay/1").response { _ in request.fulfill() }
+
+        waitForExpectations(timeout: timeout)
 
         // Then
         XCTAssertEqual(visibilityStates.count, 2)

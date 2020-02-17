@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
+- `3.0.x` Releases - [3.0.0](#300)
 - `3.0.0` Betas - [3.0.0-beta.1](#300-beta1) | [3.0.0-beta.2](#300-beta2) |  | [3.0.0-beta.3](#300-beta3)
 
 #### 2.x Releases
@@ -17,6 +18,14 @@ All notable changes to this project will be documented in this file.
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
 
 ---
+
+## [3.0.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0)
+Released on 2020-002-17. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/14?closed=1).
+
+#### Added
+- Swift Package Manager support.
+  - Added by [Alexey Korolev](https://github.com/alphatroya) in Pull Request [#61](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/61).
 
 ## [3.0.0-beta.3](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0-beta.3)
 Released on 2019-05-04. All issues associated with this milestone can be found using this

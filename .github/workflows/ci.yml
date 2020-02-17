@@ -1,0 +1,28 @@
+name: "AlamofireNetworkActivityIndicator CI"
+
+on: 
+  push:
+    branches: 
+      - master
+      - hotfix
+  pull_request:
+    branches: 
+      - master
+      - hotfix
+
+jobs:
+  iOS:
+    name: Test iOS 
+    runs-on: macOS-latest
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
+    strategy:
+      matrix:
+        destination: ["OS=13.3,name=iPhone 11 Pro"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Dependencies
+        run: carthage bootstrap --no-use-binaries --platform iOS
+      - name: iOS
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "AlamofireNetworkActivityIndicator.xcodeproj" -scheme "AlamofireNetworkActivityIndicator" -destination "${{ matrix.destination }}" clean test | xcpretty
