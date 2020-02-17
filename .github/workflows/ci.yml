@@ -25,4 +25,4 @@ jobs:
       - name: Dependencies
         run: carthage bootstrap --no-use-binaries --platform iOS
       - name: iOS
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire iOS" -destination "${{ matrix.destination }}" clean test | xcpretty
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "AlamofireNetworkActivityIndicator.xcodeproj" -scheme "AlamofireNetworkActivityIndicator" -destination "${{ matrix.destination }}" clean test | xcpretty
