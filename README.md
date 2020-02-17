@@ -18,13 +18,13 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 9.0+
-- Swift 4.0+
+- iOS 10.0+
+- Xcode 10.2+
+- Swift 5.0+
 
 ## Dependencies
 
-- [Alamofire 4.8+](https://github.com/Alamofire/Alamofire)
+- [Alamofire 5.0+](https://github.com/Alamofire/Alamofire)
 
 ## Communication
 
@@ -41,7 +41,7 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'AlamofireNetworkActivityIndicator', '~> 2.4'
+pod 'AlamofireNetworkActivityIndicator', '~> 3.0'
 ```
 
 ### Carthage
@@ -49,13 +49,13 @@ pod 'AlamofireNetworkActivityIndicator', '~> 2.4'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Alamofire/AlamofireNetworkActivityIndicator" ~> 2.4.0
+github "Alamofire/AlamofireNetworkActivityIndicator" ~> 3.0
 ```
 
-### Swift Package Manager (required Xcode 11)
+### Swift Package Manager (requires Xcode 11)
 
 1. Select File > Swift Packages > Add Package Dependency. Enter `https://github.com/Alamofire/AlamofireNetworkActivityIndicator` in the "Choose Package Repository" dialog.
-2. In the next page, specify the version resolving rule as "Up to Next Major" with "3.0.0-beta.4" as its earliest version.
+2. In the next page, specify the version resolving rule as "Up to Next Major" with "3.0.0" as its earliest version.
 3. After Xcode checking out the source and resolving the version, you can choose the "AlamofireNetworkActivityIndicator" library and add it to your app target.
 
 ### Manually

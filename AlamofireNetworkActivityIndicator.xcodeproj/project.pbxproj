@@ -95,6 +95,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		311AAFCC23FB4CDF00AFBABD /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		4C0097AC1EF4CB9A0010778C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		4C0097AD1EF4CB9A0010778C /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		4C0097AE1EF4CB9A0010778C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 			children = (
 				4C0097B01EF4CBA40010778C /* AlamofireNetworkActivityIndicator.podspec */,
 				4C0097B11EF4CBA40010778C /* Cartfile */,
+				311AAFCC23FB4CDF00AFBABD /* Package.swift */,
 			);
 			name = Deployment;
 			sourceTree = "<group>";
@@ -296,11 +298,11 @@
 			};
 			buildConfigurationList = 4CB928331C66E1A600CE5F08 /* Build configuration list for PBXProject "AlamofireNetworkActivityIndicator" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 4CB9282F1C66E1A600CE5F08;
 			productRefGroup = 4CB9283A1C66E1A600CE5F08 /* Products */;
