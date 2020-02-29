@@ -19,8 +19,16 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [3.0.1](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.1)
+Released on 2020-02-29. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/15?closed=1).
+
+#### Fixed
+- Swift Package Manager checkouts due to git submodule.
+  - Fixed by [Jon Shier](https://github.com/jshier) in Pull Request [#65](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/65).
+
 ## [3.0.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.0.0)
-Released on 2020-002-17. All issues associated with this milestone can be found using this
+Released on 2020-02-17. All issues associated with this milestone can be found using this
 [filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/14?closed=1).
 
 #### Added
