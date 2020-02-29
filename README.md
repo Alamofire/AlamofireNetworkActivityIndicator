@@ -10,7 +10,7 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 
 ## Features
 
-- [X] Automatic Management of Activity Indicator Visiblity
+- [X] Automatic Management of Activity Indicator Visibility
 - [X] Delay Timers to Mitigate Flicker
 - [X] Can Support `URLSession` Instances Not Managed by Alamofire
 - [x] Comprehensive Test Coverage
