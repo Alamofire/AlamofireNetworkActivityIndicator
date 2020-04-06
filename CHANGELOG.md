@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file.
 ---
 
 ## [3.1.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.1.0)
-Released on 2020-02-29. All issues associated with this milestone can be found using this
+Released on 2020-04-05. All issues associated with this milestone can be found using this
 [filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/16?closed=1).
 
 #### Updated
