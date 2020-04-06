@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file.
 `AlamofireNetworkActivityIndicator` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 3.x Releases
-- `3.0.x` Releases - [3.0.0](#300)
+- `3.1.x` Releases - [3.1.0](#310)
+- `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301)
 - `3.0.0` Betas - [3.0.0-beta.1](#300-beta1) | [3.0.0-beta.2](#300-beta2) |  | [3.0.0-beta.3](#300-beta3)
 
 #### 2.x Releases
@@ -16,6 +17,16 @@ All notable changes to this project will be documented in this file.
 #### 1.x Releases
 - `1.1.x` Releases - [1.1.0](#110)
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101)
+
+---
+
+## [3.1.0](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/releases/tag/3.1.0)
+Released on 2020-02-29. All issues associated with this milestone can be found using this
+[filter](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/milestone/16?closed=1).
+
+#### Updated
+- Project to require Swift 5.1.
+  - Updated by  [Jon Shier](https://github.com/jshier) in Pull Request [#67](https://github.com/Alamofire/AlamofireNetworkActivityIndicator/pull/67).
 
 ---
 
