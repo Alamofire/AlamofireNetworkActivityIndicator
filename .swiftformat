@@ -2,7 +2,7 @@
 
 --symlinks ignore
 --exclude Carthage
---swiftversion 5
+--swiftversion 5.1
 
 # rules
 --disable andOperator
