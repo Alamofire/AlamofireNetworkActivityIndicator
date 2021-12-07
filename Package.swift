@@ -26,7 +26,7 @@
 import PackageDescription
 
 let package = Package(name: "AlamofireNetworkActivityIndicator",
-                      platforms: [.iOS(.v10)],
+                      platforms: [.iOS(.v10), .macOS(.v10_12)],
                       products: [.library(name: "AlamofireNetworkActivityIndicator", targets: ["AlamofireNetworkActivityIndicator"])],
                       dependencies: [.package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.1.0")],
                       targets: [.target(name: "AlamofireNetworkActivityIndicator",
